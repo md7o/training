@@ -50,8 +50,8 @@ class _chatPageState extends State<chatPage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           //  ===================================================================
-          SizedBox(
-            height: 30,
+          const SizedBox(
+            height: 20,
           ),
           Expanded(
             child: ListView.builder(
