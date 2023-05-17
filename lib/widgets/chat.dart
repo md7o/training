@@ -51,7 +51,7 @@ class _chatPageState extends State<chatPage> {
         children: [
           //  ===================================================================
           SizedBox(
-            height: 20,
+            height: 30,
           ),
           Expanded(
             child: ListView.builder(
