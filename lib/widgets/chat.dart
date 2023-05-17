@@ -73,7 +73,7 @@ class _chatPageState extends State<chatPage> {
                             color: Colors.teal),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 8),
+                              horizontal: 10, vertical: 5),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -81,10 +81,11 @@ class _chatPageState extends State<chatPage> {
                                 NickNames[index].name,
                                 style: const TextStyle(
                                   color: Colors.white,
+                                  fontSize: 15,
                                 ),
                               ),
                               const SizedBox(
-                                height: 5,
+                                height: 3,
                               ),
                               Text(
                                 DateFormat('hh:mm a')
