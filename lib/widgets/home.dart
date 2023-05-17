@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../models/nickname.dart';
 
 class homePage extends StatefulWidget {
@@ -25,7 +26,8 @@ class _homePageState extends State<homePage> {
   }
 
   void _addNewNickName(String txUser) {
-    final AddTx = NickName(name: txUser, id: DateTime.now().toString());
+    final AddTx = NickName(
+        name: txUser, id: DateTime.now().toString(), date: DateTime.now());
     setState(() {
       NickNames.add(AddTx);
     });

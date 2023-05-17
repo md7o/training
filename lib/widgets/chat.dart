@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../models/nickname.dart';
 
@@ -17,6 +18,8 @@ class _chatPageState extends State<chatPage> {
   void submitData() {
     final entredUsername = userController.text;
 
+    userController.clear();
+
     if (entredUsername.isEmpty) {
       return;
     }
@@ -25,7 +28,8 @@ class _chatPageState extends State<chatPage> {
   }
 
   void _addNewNickName(String txUser) {
-    final AddTx = NickName(name: txUser, id: DateTime.now().toString());
+    final AddTx = NickName(
+        name: txUser, id: DateTime.now().toString(), date: DateTime.now());
     setState(() {
       NickNames.add(AddTx);
     });
@@ -69,19 +73,26 @@ class _chatPageState extends State<chatPage> {
                             color: Colors.teal),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              horizontal: 10, vertical: 8),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(
-                                width: 150,
-                                child: Text(
-                                  NickNames[index].name,
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                  ),
+                              Text(
+                                NickNames[index].name,
+                                style: const TextStyle(
+                                  color: Colors.white,
                                 ),
                               ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                DateFormat('hh:mm a')
+                                    .format(NickNames[index].date),
+                                style: const TextStyle(
+                                    color: Color.fromARGB(255, 215, 215, 215),
+                                    fontSize: 10),
+                              )
                             ],
                           ),
                         ),
