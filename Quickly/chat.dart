@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import '../models/nickname.dart';
+import 'models/nickname.dart';
 
 class chatPage extends StatefulWidget {
   const chatPage({super.key});
@@ -63,6 +62,7 @@ class _chatPageState extends State<chatPage> {
               itemCount: NickNames.length,
               itemBuilder: (context, index) {
                 return Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
@@ -77,11 +77,13 @@ class _chatPageState extends State<chatPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                NickNames[index].name,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
+                              RichText(
+                                text: TextSpan(
+                                  text: NickNames[index].name,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                  ),
                                 ),
                               ),
                               const SizedBox(
@@ -91,8 +93,7 @@ class _chatPageState extends State<chatPage> {
                                 DateFormat('hh:mm a')
                                     .format(NickNames[index].date),
                                 style: const TextStyle(
-                                    color: Color.fromARGB(255, 215, 215, 215),
-                                    fontSize: 10),
+                                    color: Color(0xFFE0E0E0), fontSize: 10),
                               )
                             ],
                           ),
